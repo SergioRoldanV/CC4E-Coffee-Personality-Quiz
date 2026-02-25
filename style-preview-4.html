@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 4 - Warm & Cozy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5ede0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #5c3d1e;
+      color: #f5ede0;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 100;
+    }
+    .card {
+      background: #fffaf5;
+      border-radius: 20px;
+      padding: 48px 44px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(92,61,30,0.12);
+      border: 1px solid rgba(92,61,30,0.08);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .coffee-icon { font-size: 24px; }
+    .brand {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #5c3d1e;
+    }
+    .progress {
+      margin-bottom: 36px;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #a07850;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .progress-track {
+      height: 6px;
+      background: #ede0d0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, #c8845a, #e8a878);
+      border-radius: 999px;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c1a0e;
+      line-height: 1.45;
+      margin-bottom: 28px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 2px solid #ede0d0;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #4a2e14;
+      font-size: 15px;
+      background: white;
+    }
+    .option:hover { border-color: #c8845a; background: #fff8f3; }
+    .option.selected { border-color: #c8845a; background: #fff3eb; }
+    .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #dcc8b4;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .option.selected .dot {
+      border-color: #c8845a;
+      background: #c8845a;
+    }
+    .option.selected .dot::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+    }
+    .btn {
+      margin-top: 28px;
+      width: 100%;
+      padding: 17px;
+      background: #5c3d1e;
+      color: #f5ede0;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.3px;
+    }
+    .btn:hover { background: #4a2e14; }
+  </style>
+</head>
+<body>
+  <div class="label">Style 4 — Warm & Cozy</div>
+  <div class="card">
+    <div class="header">
+      <span class="coffee-icon">☕</span>
+      <span class="brand">Basecamp Coffee</span>
+    </div>
+    <div class="progress">
+      <div class="progress-label">
+        <span>Your journey</span>
+        <span>3 of 5</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+    <h1>You're dropped into a fantasy world. Which faction do you join?</h1>
+    <div class="options">
+      <div class="option">
+        <div class="dot"></div>
+        <span>The fierce Viking warriors — glory in battle</span>
+      </div>
+      <div class="option selected">
+        <div class="dot"></div>
+        <span>The disciplined Roman legion — order and empire</span>
+      </div>
+      <div class="option">
+        <div class="dot"></div>
+        <span>The swift Mongol riders — freedom and conquest</span>
+      </div>
+      <div class="option">
+        <div class="dot"></div>
+        <span>The Aztec priests — mystery and ancient wisdom</span>
+      </div>
+    </div>
+    <button class="btn">Next Question →</button>
+  </div>
+</body>
+</html>

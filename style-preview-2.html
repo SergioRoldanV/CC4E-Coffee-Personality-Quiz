@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 2 - Minimal & Clean</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 100;
+    }
+    .container {
+      max-width: 520px;
+      width: 100%;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .logo {
+      font-size: 13px;
+      font-weight: 600;
+      color: #999;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .counter {
+      font-size: 13px;
+      color: #999;
+      font-weight: 500;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 2px;
+      background: #e8e8e8;
+      border-radius: 999px;
+      margin-bottom: 56px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 40%;
+      background: #1a1a1a;
+      border-radius: 999px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.35;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid #efefef;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .option:first-child { border-top: 1px solid #efefef; }
+    .option:hover { color: #000; padding-left: 8px; }
+    .option.selected { color: #000; font-weight: 700; padding-left: 8px; }
+    .option.selected .arrow { opacity: 1; }
+    .arrow {
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 0.15s;
+      color: #1a1a1a;
+    }
+    .option:hover .arrow { opacity: 0.4; }
+    .btn {
+      margin-top: 48px;
+      padding: 16px 32px;
+      background: #1a1a1a;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="label">Style 2 — Minimal & Clean</div>
+  <div class="container">
+    <div class="top">
+      <div class="logo">Coffee Quiz</div>
+      <div class="counter">3 / 5</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <h1>You're dropped into a fantasy world. Which faction do you join?</h1>
+    <div class="options">
+      <div class="option">
+        <span>The fierce Viking warriors — glory in battle</span>
+        <span class="arrow">→</span>
+      </div>
+      <div class="option selected">
+        <span>The disciplined Roman legion — order and empire</span>
+        <span class="arrow">→</span>
+      </div>
+      <div class="option">
+        <span>The swift Mongol riders — freedom and conquest</span>
+        <span class="arrow">→</span>
+      </div>
+      <div class="option">
+        <span>The Aztec priests — mystery and ancient wisdom</span>
+        <span class="arrow">→</span>
+      </div>
+    </div>
+    <button class="btn">Continue</button>
+  </div>
+</body>
+</html>

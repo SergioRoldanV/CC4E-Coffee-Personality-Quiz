@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 3 - Bold & Dramatic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 100;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .card {
+      max-width: 580px;
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 24px 40px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      color: #c8a96e;
+      letter-spacing: 3px;
+    }
+    .progress-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .card-body {
+      padding: 48px 40px;
+    }
+    .progress-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 40px;
+    }
+    .bar-seg {
+      height: 3px;
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+    .bar-seg.done { background: #c8a96e; }
+    .bar-seg.active { background: rgba(200, 169, 110, 0.5); }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 36px;
+      letter-spacing: 1px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .option:hover { border-color: #c8a96e; color: white; background: rgba(200,169,110,0.05); }
+    .option.selected { border-color: #c8a96e; color: white; background: rgba(200,169,110,0.08); }
+    .option-key {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: #c8a96e;
+      min-width: 24px;
+      letter-spacing: 1px;
+    }
+    .btn {
+      margin-top: 32px;
+      width: 100%;
+      padding: 18px;
+      background: #c8a96e;
+      color: #0a0a0a;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .btn:hover { background: #d4b87a; }
+  </style>
+</head>
+<body>
+  <div class="label">Style 3 — Bold & Dramatic</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="logo">Coffee Personality</div>
+      <div class="progress-text">Question 3 of 5</div>
+    </div>
+    <div class="card-body">
+      <div class="progress-bar">
+        <div class="bar-seg done"></div>
+        <div class="bar-seg done"></div>
+        <div class="bar-seg active"></div>
+        <div class="bar-seg"></div>
+        <div class="bar-seg"></div>
+      </div>
+      <h1>You're dropped into a fantasy world. Which faction do you join?</h1>
+      <div class="options">
+        <div class="option">
+          <span class="option-key">A</span>
+          <span>The fierce Viking warriors — glory in battle</span>
+        </div>
+        <div class="option selected">
+          <span class="option-key">B</span>
+          <span>The disciplined Roman legion — order and empire</span>
+        </div>
+        <div class="option">
+          <span class="option-key">C</span>
+          <span>The swift Mongol riders — freedom and conquest</span>
+        </div>
+        <div class="option">
+          <span class="option-key">D</span>
+          <span>The Aztec priests — mystery and ancient wisdom</span>
+        </div>
+      </div>
+      <button class="btn">Next Question</button>
+    </div>
+  </div>
+</body>
+</html>
