@@ -127,27 +127,23 @@ export default function QuizPage() {
   const [screen, setScreen] = useState<"intro" | "question" | "result">("intro");
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
-  const [currentSelection, setCurrentSelection] = useState<string | null>(null);
 
   const totalQuestions = QUESTIONS.length;
 
   function startQuiz() {
     setCurrentQuestion(0);
     setSelectedAnswers([]);
-    setCurrentSelection(null);
     setScreen("question");
   }
 
-  function handleNext() {
-    if (!currentSelection) return;
-    const newAnswers = [...selectedAnswers, currentSelection];
+  function handleSelect(personality: string) {
+    const newAnswers = [...selectedAnswers, personality];
     if (currentQuestion + 1 >= totalQuestions) {
       setSelectedAnswers(newAnswers);
       setScreen("result");
     } else {
       setSelectedAnswers(newAnswers);
       setCurrentQuestion((q) => q + 1);
-      setCurrentSelection(null);
     }
   }
 
@@ -277,80 +273,50 @@ export default function QuizPage() {
               {q.question}
             </h2>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "28px" }}>
-              {q.options.map((opt) => {
-                const isSelected = currentSelection === opt.personality;
-                return (
-                  <button
-                    key={opt.key}
-                    onClick={() => setCurrentSelection(opt.personality)}
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              {q.options.map((opt) => (
+                <button
+                  key={opt.key}
+                  onClick={() => handleSelect(opt.personality)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "14px",
+                    padding: "14px 16px",
+                    borderRadius: "8px",
+                    border: "2px solid #ede8e1",
+                    background: "#fdfaf7",
+                    cursor: "pointer",
+                    textAlign: "left",
+                    transition: "border-color 0.15s, background 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#e8b86d";
+                    (e.currentTarget as HTMLButtonElement).style.background = "#fffbf3";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "#ede8e1";
+                    (e.currentTarget as HTMLButtonElement).style.background = "#fdfaf7";
+                  }}
+                >
+                  <span
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "14px",
-                      padding: "14px 16px",
-                      borderRadius: "8px",
-                      border: `2px solid ${isSelected ? "#e8b86d" : "#ede8e1"}`,
-                      background: isSelected ? "#fffbf3" : "#fdfaf7",
-                      cursor: "pointer",
-                      textAlign: "left",
-                      transition: "border-color 0.15s, background 0.15s",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isSelected) {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#e8b86d";
-                        (e.currentTarget as HTMLButtonElement).style.background = "#fffbf3";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isSelected) {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#ede8e1";
-                        (e.currentTarget as HTMLButtonElement).style.background = "#fdfaf7";
-                      }
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontSize: "16px",
+                      color: "#e8b86d",
+                      minWidth: "20px",
+                      letterSpacing: "1px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "'Bebas Neue', sans-serif",
-                        fontSize: "16px",
-                        color: "#e8b86d",
-                        minWidth: "20px",
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      {opt.key}
-                    </span>
-                    <span style={{ fontSize: "20px" }}>{opt.emoji}</span>
-                    <span style={{ color: "#2a1f14", fontSize: "15px", fontWeight: 500, lineHeight: 1.4 }}>
-                      {opt.text}
-                    </span>
-                  </button>
-                );
-              })}
+                    {opt.key}
+                  </span>
+                  <span style={{ fontSize: "20px" }}>{opt.emoji}</span>
+                  <span style={{ color: "#2a1f14", fontSize: "15px", fontWeight: 500, lineHeight: 1.4 }}>
+                    {opt.text}
+                  </span>
+                </button>
+              ))}
             </div>
-
-            <button
-              onClick={handleNext}
-              disabled={!currentSelection}
-              style={{
-                background: currentSelection ? "#2a1f14" : "#c4bdb6",
-                color: currentSelection ? "#f0ece6" : "#8a807a",
-                border: "none",
-                borderRadius: "8px",
-                padding: "14px 28px",
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: "17px",
-                letterSpacing: "1.5px",
-                cursor: currentSelection ? "pointer" : "not-allowed",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                transition: "background 0.15s",
-              }}
-            >
-              {currentQuestion + 1 === totalQuestions ? "SEE MY RESULT" : "NEXT QUESTION"}
-              <span style={{ color: currentSelection ? "#e8b86d" : "#8a807a", fontSize: "18px" }}>→</span>
-            </button>
           </div>
         </div>
       </div>
