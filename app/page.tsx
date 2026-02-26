@@ -87,7 +87,8 @@ const QUESTIONS = [
 function calcResult(answers: string[]): string {
   const counts: Record<string, number> = { bold: 0, zen: 0, artisan: 0, practical: 0 };
   answers.forEach((a) => { counts[a] = (counts[a] || 0) + 1; });
-  return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const topCount = Math.max(...Object.values(counts));
+  return answers.find((a) => counts[a] === topCount)!;
 }
 
 // ── Shared header ──────────────────────────────────────────────────────────────
