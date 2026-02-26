@@ -151,7 +151,6 @@ export default function QuizPage() {
     setScreen("intro");
     setCurrentQuestion(0);
     setSelectedAnswers([]);
-    setCurrentSelection(null);
   }
 
   const cardStyle: React.CSSProperties = {
